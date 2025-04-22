@@ -1,0 +1,10 @@
+// 主SCSS入口文件
+
+// 导入变量
+@use './variables.scss';
+
+// 导入混合器
+@use './mixins.scss';
+
+// 导入全局样式
+@use './common.scss';
