@@ -50,5 +50,7 @@ Mock.mock(/\/api\/users(\?.+)?$/, 'get', (options: any) => {
     }
   };
 });
+// 菜单相关
+import './menu'
 
 export default Mock;

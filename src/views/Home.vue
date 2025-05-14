@@ -3,27 +3,22 @@
     <!-- 搜索区域 -->
     <div class="search-container">
       <!-- 查询表单 -->
-    <CommonForm 
-      :options="formFields" 
-      :initialValues="initialValues"
-      ref="formRef" 
-      @search="handleSearch"
-      @reset="handleReset"
-    >
-      <!-- 自定义按钮 -->
-      <template #buttons>
-        <a-button @click="getFormValues">获取表单值</a-button>
-        <a-button @click="handleExport">导出</a-button>
-      </template>
-      
-      <!-- 自定义字段 -->
-      <template #field-custom="{ field, formState }">
-        <a-radio-group v-model:value="formState[field.name]">
-          <a-radio value="1">选项一</a-radio>
-          <a-radio value="2">选项二</a-radio>
-        </a-radio-group>
-      </template>
-    </CommonForm>
+      <CommonForm :options="formFields" :initialValues="initialValues" ref="formRef" @search="handleSearch"
+        @reset="handleReset">
+        <!-- 自定义按钮 -->
+        <template #buttons>
+          <a-button @click="getFormValues">获取表单值</a-button>
+          <a-button @click="handleExport">导出</a-button>
+        </template>
+
+        <!-- 自定义字段 -->
+        <template #field-custom="{ field, formState }">
+          <a-radio-group v-model:value="formState[field.name]">
+            <a-radio value="1">选项一</a-radio>
+            <a-radio value="2">选项二</a-radio>
+          </a-radio-group>
+        </template>
+      </CommonForm>
     </div>
 
     <CommonTable :options="tableOptions" @dataLoaded="handleDataLoaded">
@@ -45,7 +40,7 @@
         </template>
       </template>
     </CommonTable>
-    
+
   </div>
 </template>
 
@@ -166,7 +161,7 @@ const initialValues = {
 // 查询参数
 const queryParams = ref({});
 
-const formRef = ref(null);
+const formRef = ref<any>(null);
 
 const getFormValues = () => {
   if (formRef.value) {
@@ -192,10 +187,6 @@ const handleReset = (values) => {
 const handleExport = () => {
   console.log('导出数据');
 };
-
-
-
-// 搜索处理
 
 
 // 数据加载完成回调
